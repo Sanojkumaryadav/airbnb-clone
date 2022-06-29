@@ -1,11 +1,8 @@
-import './App.css';
+import "./App.css";
+import { RequestToBook } from "./components/RequestToBook";
 
 function App() {
-  return (
-    <div className="App">
-     AIRBNB Clone
-    </div>
-  );
+  return <RequestToBook />;
 }
 
 export default App;
