@@ -8,7 +8,6 @@ const IslandDetailsCard = () => {
       alignItems:"center",
       width:"100%",
       margin:"auto"
-      
   }
 
 let gridImage = {
