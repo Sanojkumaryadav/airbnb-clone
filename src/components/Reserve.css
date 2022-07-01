@@ -1,0 +1,56 @@
+body{
+    margin-top:2rem;
+    margin-left:3rem;
+    margin-bottom:10rem;
+
+}
+
+.reservebox{
+    width:27vw;
+    height:70vh;
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 12px;
+    padding: 10px;
+    box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
+    position:absolute;
+    right:40px;
+    top:600px;
+}
+.innerBox{
+    margin:auto;
+    width:85%;
+    position:relative;
+}
+input{
+    border:1px solid #cecece;
+    padding:1rem;
+    outline:none;
+    position:relative;
+
+}
+select{
+    padding:1rem;
+    border:1px solid #cecece;
+    background-color: transparent;
+    width:98.5%;
+    outline:none;
+    position:relative;
+}
+.charges{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    color:#424242;
+    position:relative;
+}
+.charges > p{
+  text-decoration: underline;
+  position:relative;
+}
+.total{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    color:#212121;
+    position:relative;
+}
