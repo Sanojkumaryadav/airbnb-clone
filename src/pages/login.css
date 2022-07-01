@@ -133,4 +133,23 @@
     display: flex;
     flex-direction: row;
   }
-  
+
+  .otpContainer{
+    position: absolute;
+    display: block;
+    border: 2px solid #cecece;
+    width: 30%;
+    margin: auto;
+    height: 200px;
+    border-radius: 10px;
+    padding-left: 30px;
+    top: 10px;
+    bottom: 10px;
+    left: 72px;
+    right: 10px;
+    /* display: none; */
+  }
+  .otpContainer input, button{
+    padding: 10px 40px;
+    margin-bottom: 15px;
+  }

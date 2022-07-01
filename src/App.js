@@ -4,6 +4,8 @@ import LoginFirstPage from "./pages/LoginFirstPage"
 import Login from "./pages/Login";
 import { BrowserRouter, Routes, Route} from "react-router-dom";
 import { useEffect, useState } from "react";
+import Otp from "./pages/Otp"
+
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -37,9 +39,11 @@ const App = () => {
     <BrowserRouter>
       <div>
         <Navbar user={user} />
+        {/* <Otp/> */}
         <Routes>
           <Route path="/" element={<LoginFirstPage />} />
           <Route path="/login" element={user ? <LoginFirstPage /> : <Login />}/>
+          
         </Routes>
       </div>
     </BrowserRouter>

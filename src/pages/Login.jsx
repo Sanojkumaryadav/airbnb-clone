@@ -1,31 +1,87 @@
-// import Google from "../img/google.png";
-import React from "react";
+import React from 'react'
+import firebase from './firebase'
 import Facebook from "../img/facebook1.png";
 import { FcGoogle } from "react-icons/fc";
 import {AiFillApple} from "react-icons/ai"
 import Email from "../img/email.png"
-import CrossIcon from "../img/crossIcon.png"
+import CrossIcon from "../img/cross.png"
 import "./login.css";
 import LoginFirstPasge from "./LoginFirstPage";
+import Otp from "./Otp"
 
 
-const Login = () => {
-  const google = () => {
+class Main extends React.Component {
+
+  google = () => {
     window.open("http://localhost:5000/auth/google", "_self");
   };
 
-  const facebook = () => {
+   facebook = () => {
     window.open("http://localhost:5000/auth/facebook", "_self");
   };
-  const crossicon = () =>{
+   Crossicon = () =>{
     window.open("LoginFirstPasge", "_self")
   }
+  
+  continue = () =>{
+    window.open("Otp","_self");
+  }
 
-  return (
-    <div className="login_container">
+
+
+  handleChange = (e) =>{
+    const {name, value } = e.target
+    this.setState({
+        [name]: value
+      })
+  }
+  configureCaptcha = () =>{
+    window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('sign-in-button', {
+      'size': 'invisible',
+      'callback': (response) => {
+        this.onSignInSubmit();
+        console.log("Recaptca varified")
+      },
+      defaultCountry: "IN"
+    });
+  }
+  onSignInSubmit = (e) => {
+    e.preventDefault()
+    this.configureCaptcha()
+    const phoneNumber = "+91" + this.state.mobile
+    // console.log(phoneNumber)
+    const appVerifier = window.recaptchaVerifier;
+    firebase.auth().signInWithPhoneNumber(phoneNumber, appVerifier)
+        .then((confirmationResult) => {
+          window.confirmationResult = confirmationResult;
+          console.log("OTP has been sent")
+          // ...
+        }).catch((error) => {
+          console.log("SMS not sent")
+        });
+  }
+  onSubmitOTP = (e) =>{
+    e.preventDefault()
+    const code = this.state.otp
+    console.log(code)
+    window.confirmationResult.confirm(code).then((result) => {
+      const user = result.user;
+      console.log(JSON.stringify(user))
+      alert("User is verified")
+      
+    }).catch((error) => {
+      console.log(error);
+    });
+  }
+  render() {
+    return (
+      <div>
+
+
+<div className="login_container">
      <div>
       <div className="loginHeading">
-        <div onClick={crossicon}><a href={LoginFirstPasge}><img className="crossIconImg" src={CrossIcon} alt="" /></a></div>
+        <div onClick={this.Crossicon}><a href={LoginFirstPasge}><img className="crossIconImg" src={CrossIcon} alt="" /></a></div>
         <p>Log in or sign up</p>
       </div>
      </div>
@@ -36,7 +92,6 @@ const Login = () => {
               <h2 className="h1Heading">Welcome to Airbnb</h2>
           </div>
         <div className="top">
-          {/* <!-- country codes (ISO 3166) and Dial codes. --> */}
           <select name="countryCode" id="" className="country_options">
             <option data-countryCode="DZ" value="213">
               Algeria (+213)
@@ -675,21 +730,24 @@ const Login = () => {
               Zimbabwe (+263)
             </option>
           </select>
-          <input type="tel" className="number_input" placeholder="Phone number" />
+        <form onSubmit={this.onSignInSubmit}>
+        <div id="sign-in-button"></div>
+        <input type="number" name="mobile" className="number_input" placeholder="Phone number" required onChange={this.handleChange}  />
               <div><div className="para_container">
-                <p className="first-para">We’ll call or text you to confirm your number. Standard message and data rates apply.</p>
+              <p className="first-para">We’ll call or text you to confirm your number. Standard message and data rates apply.</p>
                <p className="secound-para"><a  href="#">Privacy Policy</a></p>
                </div></div>
-          <button className="continue_button">Continue</button>
+          <button type="submit" className="continue_button" onClick={this.continue}>Continue</button>
+        </form>
            
         </div>
         
         <div className="buttom">
-          <div className="loginButton facebook" onClick={facebook}>
+          <div className="loginButton facebook" onClick={this.facebook}>
             <img src={Facebook} alt="" className="icon" />
             Continue with Facebook
           </div>
-          <div className="loginButton google" onClick={google}>
+          <div className="loginButton google" onClick={this.google}>
             <span><FcGoogle size={25} /></span>
             Continue with Google
           </div>
@@ -705,8 +763,9 @@ const Login = () => {
       </div>
       </div>
     </div>
-  );
-};
-
-
-export default Login;
+    
+        </div>
+    )
+  }
+}
+export default Main
