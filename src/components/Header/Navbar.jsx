@@ -10,13 +10,14 @@ export const Navbar = ()=> {
         justify-content:center;
         align-items:center;
         padding:15px;
-        overflow:hidden;
-        position: fixed;
-        top: 0;
-        border:1px solid red;
-        width:90%;
+        // overflow:hidden;
+        // position: fixed;
+        // top: 5rem;
+        // border:1px solid red;
+        // width:100%;
         height:40px;
-        margin-top:10px;
+        margin-top:100px;
+        // margin:auto;
         
 
     `;
@@ -106,6 +107,18 @@ export const Navbar = ()=> {
                     <StylesLink to="/">
                         <img src="https://a0.muscache.com/pictures/4d4a4eba-c7e4-43eb-9ce2-95e1d200d10e.jpg" alt="" style={{height:"30px",width:"25px"}}/>
                         <p>Treehouses</p>
+                    </StylesLink>
+                </div>
+                <div className="navbarSliderItems">
+                    <StylesLink to="/">
+                        <img src="https://a0.muscache.com/pictures/ee9e2a40-ffac-4db9-9080-b351efc3cfc4.jpg" alt="" style={{height:"30px",width:"25px"}}/>
+                        <p>Tropical</p>
+                    </StylesLink>
+                </div>
+                <div className="navbarSliderItems">
+                    <StylesLink to="/">
+                        <img src="https://a0.muscache.com/pictures/4221e293-4770-4ea8-a4fa-9972158d4004.jpg" alt="" style={{height:"30px",width:"25px"}}/>
+                        <p>Caves</p>
                     </StylesLink>
                 </div>
 
