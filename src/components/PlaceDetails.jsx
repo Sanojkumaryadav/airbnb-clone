@@ -2,7 +2,8 @@ import React from 'react'
 import Reserve from "./Reserve"
 import {useParams} from "react-router-dom"
 import IslandDetailsCard from "./IslandDetailsCard"
-import Footer from "./Footer"
+import { Footer } from './Footer/Footer'
+import './Footer/Footer.css'
  const PlaceDetails = () => {
 
   const {islandId} = useParams()
@@ -10,7 +11,6 @@ import Footer from "./Footer"
   const [isError, setIsError] = React.useState(false)
 
   const[islandDetails, setIslandDetails] = React.useState({})
-
 
   React.useEffect (()=>{
 
@@ -41,12 +41,12 @@ import Footer from "./Footer"
      <div> 
       <IslandDetailsCard  />
       <Reserve islandDetails = {islandDetails} />
-      </div>
       <Footer />
+      </div>
     
      </>
   )
 }
 
 export default PlaceDetails
-Footer
+// Footer

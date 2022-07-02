@@ -10,7 +10,6 @@ import LoginFirstPasge from "./LoginFirstPage";
 import Otp from "./Otp"
 import { BrowserRouter, Routes, Route, Link} from "react-router-dom";
 
-
 class Main extends React.Component {
 
   google = () => {

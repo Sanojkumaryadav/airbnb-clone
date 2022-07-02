@@ -43,4 +43,4 @@ const Reserve = ({islandDetails}) => {
 }
 
 export default Reserve
-Footer
+// Footer

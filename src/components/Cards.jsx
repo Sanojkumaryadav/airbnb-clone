@@ -33,4 +33,4 @@ const Cards = () => {
 }
 
 export default Cards
-Footer
+// Footer
