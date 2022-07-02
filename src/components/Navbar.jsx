@@ -8,15 +8,24 @@ const Navbar = ({ user }) => {
   return (
     <div className="navbar">
       {user ? (
-        <ul className="list">
-          <li className="listItem">
+        <ul className="login_first_container">
+          {/* <li className="listItem">
             <img src={user.photos[0].value} alt="" className="avatar" />
-          </li>
-          <li className="listItem">{user.displayName}</li>
-          <li className="listItem" onClick={logout}>
+          </li> */}
+          {/* <li className="listItem">{user.displayName}</li> */}
+      <a href="">Message</a>
+      <a href="">Notifications</a>
+      <a href="">Trips</a>
+      <a href="">Whishlist</a>
+      <a href="">Host your home</a>
+      <a href="">Host your Experiance</a>
+      <a href="">Account</a>
+      <a href="">Help</a>
+      <a className="listItem" onClick={logout}>
             Logout
-          </li>
+          </a>
         </ul>
+        
       ) : (
         <Link className="link" to="/">
           Login

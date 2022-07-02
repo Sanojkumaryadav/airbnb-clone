@@ -4,3 +4,26 @@
     justify-content: right;
     
 }
+*{
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+  }
+.login_first_container a{
+    display: block;
+    text-decoration: none;
+    color: #484848;
+    padding: 10px ;
+
+}
+.login_first_container{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border: 1px solid #cecece;
+    border-radius: 12px;
+    width: 20%;
+    margin: auto;
+    position: absolute;
+    top: 53px;
+    left: 1052px;
+    right: 20px;
+}

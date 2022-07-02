@@ -8,6 +8,7 @@ import CrossIcon from "../img/cross.png"
 import "./login.css";
 import LoginFirstPasge from "./LoginFirstPage";
 import Otp from "./Otp"
+import { BrowserRouter, Routes, Route, Link} from "react-router-dom";
 
 
 class Main extends React.Component {
@@ -19,15 +20,13 @@ class Main extends React.Component {
    facebook = () => {
     window.open("http://localhost:5000/auth/facebook", "_self");
   };
+  countine= () => {
+    window.open("http://localhost:3000/Otp", "_self");
+  };
    Crossicon = () =>{
     window.open("LoginFirstPasge", "_self")
   }
   
-  continue = () =>{
-    window.open("Otp","_self");
-  }
-
-
 
   handleChange = (e) =>{
     const {name, value } = e.target
@@ -49,7 +48,7 @@ class Main extends React.Component {
     e.preventDefault()
     this.configureCaptcha()
     const phoneNumber = "+91" + this.state.mobile
-    // console.log(phoneNumber)
+    console.log(phoneNumber)
     const appVerifier = window.recaptchaVerifier;
     firebase.auth().signInWithPhoneNumber(phoneNumber, appVerifier)
         .then((confirmationResult) => {
@@ -93,6 +92,9 @@ class Main extends React.Component {
           </div>
         <div className="top">
           <select name="countryCode" id="" className="country_options">
+          <option data-countryCode="IN" value="91">
+              India (+91)
+            </option>
             <option data-countryCode="DZ" value="213">
               Algeria (+213)
             </option>
@@ -347,9 +349,6 @@ class Main extends React.Component {
             </option>
             <option data-countryCode="IS" value="354">
               Iceland (+354)
-            </option>
-            <option data-countryCode="IN" value="91">
-              India (+91)
             </option>
             <option data-countryCode="ID" value="62">
               Indonesia (+62)
@@ -730,14 +729,14 @@ class Main extends React.Component {
               Zimbabwe (+263)
             </option>
           </select>
-        <form onSubmit={this.onSignInSubmit}>
+        <form onSubmit={this.onSignInSubmit}  >
         <div id="sign-in-button"></div>
         <input type="number" name="mobile" className="number_input" placeholder="Phone number" required onChange={this.handleChange}  />
               <div><div className="para_container">
               <p className="first-para">We’ll call or text you to confirm your number. Standard message and data rates apply.</p>
                <p className="secound-para"><a  href="#">Privacy Policy</a></p>
                </div></div>
-          <button type="submit" className="continue_button" onClick={this.continue}>Continue</button>
+          <button type="submit" className="continue_button" onClick={this.countine}>Continue</button>
         </form>
            
         </div>

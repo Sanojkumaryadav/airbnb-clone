@@ -39,12 +39,12 @@ const App = () => {
     <BrowserRouter>
       <div>
         <Navbar user={user} />
-        {/* <Otp/> */}
         <Routes>
-          <Route path="/" element={<LoginFirstPage />} />
-          <Route path="/login" element={user ? <LoginFirstPage /> : <Login />}/>
-          
+          <Route path="/" element={user ? <Navbar /> :<LoginFirstPage /> } />
+          <Route path="/login" element={user ? <LoginFirstPage /> : <Login />}/> 
+          <Route path="/otp" element={<Otp />}/> 
         </Routes>
+        
       </div>
     </BrowserRouter>
   );
