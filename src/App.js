@@ -5,6 +5,23 @@ import Login from "./pages/Login";
 import { BrowserRouter, Routes, Route} from "react-router-dom";
 import { useEffect, useState } from "react";
 import Otp from "./pages/Otp"
+import PlaceDetails from "./components/PlaceDetails"
+import NotFound from "./components/NotFound"
+import { RequestToBook } from "./components/RequestToBook";
+import { Home } from './components/Homepage/Home/Home';
+import {
+  ChakraProvider,
+  Box,
+  Text,
+  Link,
+  VStack,
+  Code,
+  Grid,
+  theme,
+} from '@chakra-ui/react';
+import { ClassNames } from '@emotion/react';
+// import { ColorModeSwitcher } from './ColorModeSwitcher';
+// import { Logo } from './Logo';
 
 
 const App = () => {
@@ -39,7 +56,13 @@ const App = () => {
     <BrowserRouter>
       <div>
         <Navbar user={user} />
+        
+        <RequestToBook />
         <Routes>
+        <Route path='/' element={<Home/>}></Route>
+        <Route path = "/" element = {<Cards />}></Route>
+        <Route path = "/islands/:islandId" element = {<PlaceDetails />}></Route>
+        <Route path = "*" element = {<NotFound />}></Route>
           <Route path="/" element={user ? <Navbar /> :<LoginFirstPage /> } />
           <Route path="/login" element={user ? <LoginFirstPage /> : <Login />}/> 
           <Route path="/otp" element={<Otp />}/> 

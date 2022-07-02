@@ -1,0 +1,53 @@
+.navbarSlider, .filter{
+    display: flex;
+    /* border:1px solid blue; */
+    align-items: center;
+    height: 80px;
+    /* gap: 4%;    */
+}
+.navbarSliderItems, .insideFilter{
+    /* border: 1px solid red; */
+    font-size: smaller;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    /* width: 90px; */
+    width: auto;
+    margin:15px;
+}
+.navbarSliderItems p{
+    margin: 0;
+    color: black;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.filter{
+    /* border:1px solid rgb(220, 217, 217); */
+    border-radius: 8px;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    height: 50px;
+    cursor: pointer;
+
+}
+.filter button{
+    background-color: white;
+    border: none;
+    font-weight: 600;
+    font-size: 12px;
+    cursor: pointer;
+
+}
+.filter button :hover{
+    cursor: pointer;
+}
+
+
+
+
+/* header */
+
+
+
+  /* drawer */
