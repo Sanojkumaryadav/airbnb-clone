@@ -33,6 +33,7 @@ export const Header=()=>{
     // border:1px solid red;
     width:90%;
     // height:400px;
+    background:white;
     margin-top:10px;
     margin-bottom:12px;
     

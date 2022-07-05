@@ -23,6 +23,8 @@ export const Footer = ()=> {
         width:90%;
         // margin:auto;
         // margin-top:50px;
+        background:white;
+        height:50px;
         padding:0 5%;
         position: fixed;
         left: 0;
