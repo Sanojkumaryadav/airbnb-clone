@@ -28,7 +28,7 @@ const Navbar = ({ user }) => {
         
       ) : (
         <Link className="link" to="/">
-          Login
+          
         </Link>
       )}
     </div>

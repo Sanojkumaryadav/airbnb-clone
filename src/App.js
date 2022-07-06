@@ -2,13 +2,14 @@ import Navbar from "./components/Navbar";
 import "./App.css";
 import LoginFirstPage from "./pages/LoginFirstPage"
 import Login from "./pages/Login";
-import { BrowserRouter, Routes, Route} from "react-router-dom";
+import { Routes, Route} from "react-router-dom";
 import { useEffect, useState } from "react";
 import Otp from "./pages/Otp"
 import PlaceDetails from "./components/PlaceDetails"
 import NotFound from "./components/NotFound"
 import { RequestToBook } from "./components/RequestToBook";
 import { Home } from './components/Homepage/Home/Home';
+import  Cards  from './components/Cards';
 import {
   ChakraProvider,
   Box,
@@ -53,23 +54,25 @@ const App = () => {
   }, []);
 
   return (
-    <BrowserRouter>
       <div>
         <Navbar user={user} />
         
-        <RequestToBook />
+    
+        
         <Routes>
-        <Route path='/' element={<Home/>}></Route>
-        <Route path = "/" element = {<Cards />}></Route>
-        <Route path = "/islands/:islandId" element = {<PlaceDetails />}></Route>
-        <Route path = "*" element = {<NotFound />}></Route>
-          <Route path="/" element={user ? <Navbar /> :<LoginFirstPage /> } />
-          <Route path="/login" element={user ? <LoginFirstPage /> : <Login />}/> 
-          <Route path="/otp" element={<Otp />}/> 
+          <Route path='/' element={<Home/>}></Route>
+          <Route path = "/" element = {<Cards />}></Route>
+          <Route path  ="/RequestToBook"   element={<RequestToBook />}></Route>
+
+          <Route path = "/islands/:islandId" element = {<PlaceDetails />}></Route>
+
+          <Route path = "*" element = {<NotFound />}></Route>
+          <Route path="/" element={user ? <Navbar /> :<LoginFirstPage /> } ></Route>
+          <Route path="/login" element={user ? <LoginFirstPage /> : <Login />}></Route> 
+          <Route path="/otp" element={<Otp />}></Route> 
         </Routes>
         
       </div>
-    </BrowserRouter>
   );
 };
 

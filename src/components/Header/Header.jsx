@@ -33,6 +33,7 @@ export const Header=()=>{
     // border:1px solid red;
     width:90%;
     // height:400px;
+    background:white;
     margin-top:10px;
     margin-bottom:12px;
     
@@ -405,7 +406,7 @@ const checkinDrawer=React.useRef()
                 <Menu >
                     <MenuButton as={Button} leftIcon={<MdMenu size={20}/>} rightIcon={<MdPerson size={25}/>} className="stack"></MenuButton>
                     <MenuList style={{background:"white", boxShadow:"rgba(0, 0, 0, 0.16) 0px 1px 4px"}}>
-                        <MenuItem style={styles}> <b>Log in</b> </MenuItem>
+                        <MenuItem style={styles}> <Link to="/login"><b>Log in</b></Link> </MenuItem>
                         <MenuItem style={styles}>Sign up</MenuItem>
                         <MenuDivider/>
                         <a href="https://www.airbnb.co.in/host/homes"><MenuItem style={styles}> Host your home</MenuItem></a>
@@ -508,3 +509,6 @@ const checkinDrawer=React.useRef()
         </HeaderWrapper>
     )
 }
+
+
+
